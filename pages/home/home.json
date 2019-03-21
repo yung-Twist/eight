@@ -1,4 +1,8 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "van-icon": "../../vant/icon/index",
+    "van-row": "../../vant/row/index",
+    "van-col": "../../vant/col/index"
+  },
   "navigationBarTitleText": "首页"
 }

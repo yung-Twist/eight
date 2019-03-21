@@ -1,7 +1,9 @@
 {
   "pages":[
+    "pages/map/map",
     "pages/home/home",
     "pages/commodity/commodity",
+    "pages/stafflist/stafflist",
     "pages/mine/mine",
     "pages/quote/quote",
     "pages/answer/answer",

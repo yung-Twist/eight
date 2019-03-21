@@ -1,1 +1,52 @@
 /* pages/home/home.wxss */
+.swiper-img{
+  width: 100vw;
+  height: 600rpx;
+}
+/* 商家信息 */
+.merchantInfo{
+  background-color: white;
+  padding: 26rpx 16rpx;
+  display: flex;
+  flex-direction: column;
+  
+}
+.merchantInfo .merchantName{
+  font-weight: 600;
+  font-size: 32rpx;
+}
+.merchantInfo .businessTime{
+  font-size: 24rpx;
+  color: #bbbec4;
+  margin: 10rpx 0;
+}
+.merchantInfo .address{
+  font-size: 24rpx;
+  color: #bbbec4;
+}
+/* 联系地址 */
+.touchme{
+  width: 100vw;
+  background-color: white;
+  border-top: 1px solid #bbbec4;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10rpx 0;
+}
+.touchme .touch-item{
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+ 
+}
+.touchme .touch-item:nth-child(2){
+    border-left: 1px solid #bbbec4;
+    border-right: 1px solid #bbbec4;
+}
+.touchme .touch-item text{
+  font-size: 24rpx;
+}
