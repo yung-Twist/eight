@@ -17,11 +17,11 @@
       <text class='address'> 地址：福建省厦门市思明区厦禾路开禾路口</text>
   </view>
   <view class='touchme'>
-      <view class="touch-item">
-        <van-icon name="phone-o" color="#bbbec4" size="30rpx"/>
+      <view class="touch-item" bindtap='makecall'>
+        <van-icon name="phone-o" color="#bbbec4" size="30rpx" />
         <text>拨打电话</text>
       </view>
-      <view class="touch-item">
+      <view class="touch-item" bindtap='openMap'>
         <van-icon name="location-o" color="#bbbec4" size="30rpx"/>
         <text>查看定位</text>
       </view>
@@ -29,21 +29,5 @@
         <van-icon name="location-o" color="#bbbec4" size="30rpx"/>
         <text>连接wifi</text>
       </view>
-  </view>
-  <view class='map'>
-    <map
-      id="map"
-      longitude="113.324520"
-      latitude="23.099994"
-      scale="14"
-      controls="{{controls}}"
-      bindcontroltap="controltap"
-      markers="{{markers}}"
-      bindmarkertap="markertap"
-      polyline="{{polyline}}"
-      bindregionchange="regionchange"
-      show-location
-      style="width: 100%; height: 300px;" >
-      </map>
   </view>
 </view>

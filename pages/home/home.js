@@ -6,24 +6,26 @@ Page({
       'https://images.unsplash.com/photo-1551446591-142875a901a1?w=640'
     ],
   },
-  changeIndicatorDots(e) {
-    this.setData({
-      indicatorDots: !this.data.indicatorDots
+  // 拨打电话
+  makecall(){
+    console.log(123)
+    wx.makePhoneCall({
+      phoneNumber: '1340000' //仅为示例，并非真实的电话号码
     })
   },
-  changeAutoplay(e) {
-    this.setData({
-      autoplay: !this.data.autoplay
-    })
-  },
-  intervalChange(e) {
-    this.setData({
-      interval: e.detail.value
-    })
-  },
-  durationChange(e) {
-    this.setData({
-      duration: e.detail.value
+  // 获取位置
+  openMap(){
+    wx.getLocation({
+      type: 'gcj02', // 返回可以用于wx.openLocation的经纬度
+      success(res) {
+        const latitude = res.latitude
+        const longitude = res.longitude
+        wx.openLocation({
+          latitude: 24.460146,
+          longitude: 118.075049,
+          scale: 14
+        })
+      }
     })
   }
 })

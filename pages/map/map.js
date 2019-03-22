@@ -1,44 +1,77 @@
 Page({
   data: {
-    markers: [{
-      iconPath: '../../images/map/site.png',
-      id: 0,
-      latitude: 24.502009,
-      longitude: 117.889781,
-      width: 20,
-      height: 20
-    }],
-    polyline: [{
-      points: [{
+    latitude: 24.459576,
+    longitude: 118.076449,
+    markers: [
+      {
+        id: 1,
         latitude: 24.459576,
         longitude: 118.076449,
-      }, {
-          latitude: 24.459576,
-          longitude: 118.076449,
-      }],
-      color: '#FF0000DD',
-      width: 2,
-      dottedLine: true
-    }],
-    controls: [{
-      id: 1,
-      iconPath: '../../images/map/site.png',
-      position: {
-        left: 0,
-        top: 300 - 50,
-        width: 50,
-        height: 50
+        name: '八市买手',
+        iconPath: '/images/map/location.png'
       },
-      clickable: true
-    }]
+    ]
+    // covers: [{
+    //   latitude: 23.099994,
+    //   longitude: 113.344520,
+    //   iconPath: '/images/map/location.png'
+    // }, {
+    //   latitude: 23.099994,
+    //   longitude: 113.304520,
+    //   iconPath: '/images/map/location.png'
+    // }]
   },
-  regionchange(e) {
-    console.log(e.type)
+  onReady: function (e) {
+    this.mapCtx = wx.createMapContext('myMap')
+    // this.moveToLocation()
   },
-  markertap(e) {
-    console.log(e.markerId)
+  getCenterLocation: function () {
+    this.mapCtx.getCenterLocation({
+      success: function (res) {
+        console.log(res.longitude)
+        console.log(res.latitude)
+      }
+    })
   },
-  controltap(e) {
-    console.log(e.controlId)
+  moveToLocation: function () {
+    let that = this
+    this.mapCtx.moveToLocation()
+    wx.getLocation({
+      type: 'gcj02', // 返回可以用于wx.openLocation的经纬度
+      success(res) {
+        // console.log(res)
+        wx.openLocation({
+          latitude: that.data.latitude,
+          longitude: that.data.longitude,
+          scale: 18
+        })
+      }
+    })
+  },
+  translateMarker: function () {
+    this.mapCtx.translateMarker({
+      markerId: 1,
+      autoRotate: true,
+      duration: 1000,
+      destination: {
+        latitude: 23.10229,
+        longitude: 113.3345211,
+      },
+      animationEnd() {
+        console.log('animation end')
+      }
+    })
+  },
+  includePoints: function () {
+    this.mapCtx.includePoints({
+      padding: [10],
+      points: [{
+        latitude: 23.10229,
+        longitude: 113.3345211,
+      }, {
+        latitude: 23.00229,
+        longitude: 113.3345211,
+      }]
+    })
   }
 })
